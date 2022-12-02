@@ -1,0 +1,15 @@
+C:\Users\danil\Desktop\GB C#\bin\Debug\net6.0\GB C#.exe
+C:\Users\danil\Desktop\GB C#\bin\Debug\net6.0\GB C#.deps.json
+C:\Users\danil\Desktop\GB C#\bin\Debug\net6.0\GB C#.runtimeconfig.json
+C:\Users\danil\Desktop\GB C#\bin\Debug\net6.0\GB C#.dll
+C:\Users\danil\Desktop\GB C#\bin\Debug\net6.0\GB C#.pdb
+C:\Users\danil\Desktop\GB C#\obj\Debug\net6.0\GB C#.csproj.AssemblyReference.cache
+C:\Users\danil\Desktop\GB C#\obj\Debug\net6.0\GB C#.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danil\Desktop\GB C#\obj\Debug\net6.0\GB C#.AssemblyInfoInputs.cache
+C:\Users\danil\Desktop\GB C#\obj\Debug\net6.0\GB C#.AssemblyInfo.cs
+C:\Users\danil\Desktop\GB C#\obj\Debug\net6.0\GB C#.csproj.CoreCompileInputs.cache
+C:\Users\danil\Desktop\GB C#\obj\Debug\net6.0\GB C#.dll
+C:\Users\danil\Desktop\GB C#\obj\Debug\net6.0\refint\GB C#.dll
+C:\Users\danil\Desktop\GB C#\obj\Debug\net6.0\GB C#.pdb
+C:\Users\danil\Desktop\GB C#\obj\Debug\net6.0\GB C#.genruntimeconfig.cache
+C:\Users\danil\Desktop\GB C#\obj\Debug\net6.0\ref\GB C#.dll
