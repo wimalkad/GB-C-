@@ -105,7 +105,7 @@ while(a>0)
 }
 Console.WriteLine($"Сумма цифр числа {summa}");*/
 
-Console.WriteLine("Введите N (размер массива): ");
+/*Console.WriteLine("Введите N (размер массива): ");
 int N = Convert.ToInt32(Console.ReadLine());
 int[] chisla = new int[N];
 
@@ -114,10 +114,19 @@ for(int i = 0; i<chisla.Length; i++)
     chisla[i] = new Random().Next(0,999);
 }
 
-WArray(chisla);
+WArray(chisla);*/
 
 
-void WArray (int[] array)
+/*void WArray (int[] array)
+{
+    Console.WriteLine("Массив:");
+    for(int i = 0; i < array.Length; i++)
+    {
+        Console.Write(array[i] + " ");
+    }
+}*/
+
+void WDArray (double[] array)
 {
     Console.WriteLine("Массив:");
     for(int i = 0; i < array.Length; i++)
@@ -125,3 +134,59 @@ void WArray (int[] array)
         Console.Write(array[i] + " ");
     }
 }
+
+/*Console.WriteLine("Введите N (размер массива): ");
+int N = Convert.ToInt32(Console.ReadLine());
+int[] chisla = new int[N];
+int sch = 0;
+
+for(int i = 0; i<chisla.Length; i++)
+{
+    chisla[i] = new Random().Next(0,999);
+    if (chisla[i] % 2 == 0)
+    {
+        sch++;
+    }
+}
+
+WArray(chisla);
+Console.WriteLine($"Количество четных чисел: {sch}");*/
+
+/*Console.WriteLine("Введите N (размер массива): ");
+int N = Convert.ToInt32(Console.ReadLine());
+int[] chisla = new int[N];
+int sch = 0;
+
+for(int i = 0; i<chisla.Length; i++)
+{
+    chisla[i] = new Random().Next(-10,10);
+    if ((i+1) % 2 != 0)
+    {
+        sch = sch + chisla[i];
+    }
+}
+
+WArray(chisla);
+Console.WriteLine($"Сумма чисел на нечет позициях: {sch}");*/
+
+Console.WriteLine("Введите N (размер массива): ");
+int N = Convert.ToInt32(Console.ReadLine());
+double[] chisla = new double[N];
+double min = 100000;
+double max = -10000;
+
+for(int i = 0; i<chisla.Length; i++)
+{
+    chisla[i] = new Random().Next(0,50);
+    if (chisla[i] < min)
+    {
+        min = chisla[i];
+    }
+    if (chisla[i] > max)
+    {
+        max = chisla[i];
+    }
+}
+
+WDArray(chisla);
+Console.WriteLine($"Разница между минимальным и максимальным : {max-min}");
