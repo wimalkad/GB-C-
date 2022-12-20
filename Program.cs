@@ -126,14 +126,14 @@ WArray(chisla);*/
     }
 }*/
 
-void WDArray (double[] array)
+/*void WDArray (double[] array)
 {
     Console.WriteLine("Массив:");
     for(int i = 0; i < array.Length; i++)
     {
         Console.Write(array[i] + " ");
     }
-}
+}*/
 
 /*Console.WriteLine("Введите N (размер массива): ");
 int N = Convert.ToInt32(Console.ReadLine());
@@ -169,7 +169,7 @@ for(int i = 0; i<chisla.Length; i++)
 WArray(chisla);
 Console.WriteLine($"Сумма чисел на нечет позициях: {sch}");*/
 
-Console.WriteLine("Введите N (размер массива): ");
+/* Console.WriteLine("Введите N (размер массива): ");
 int N = Convert.ToInt32(Console.ReadLine());
 double[] chisla = new double[N];
 double min = 100000;
@@ -189,4 +189,32 @@ for(int i = 0; i<chisla.Length; i++)
 }
 
 WDArray(chisla);
-Console.WriteLine($"Разница между минимальным и максимальным : {max-min}");
+Console.WriteLine($"Разница между минимальным и максимальным : {max-min}"); */
+
+/*Console.WriteLine("Введите количество чисел N: ");
+int N = Convert.ToInt32(Console.ReadLine());
+int sch = 0;
+Console.WriteLine("Введите числа: ");
+for(int i =0; i < N; i++)
+{
+    int chislo = Convert.ToInt32(Console.ReadLine ());
+    if (chislo > 0)
+    {
+        sch++;
+    }
+}
+Console.WriteLine($"Количество положительных чисел: {sch}");*/
+
+Console.WriteLine("Введите переменную b1: ");
+double b1 = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("Введите переменную k1: ");
+double k1 = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("Введите переменную b2: ");
+double b2 = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("Введите переменную k2: ");
+double k2 = Convert.ToDouble(Console.ReadLine());
+
+double x = (b2-b1)/(k1-k2);
+double y = k1 * x + b1;
+
+Console.WriteLine($"Координаты точки пересечения X = {x} Y = {y} ");
