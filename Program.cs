@@ -205,7 +205,7 @@ for(int i =0; i < N; i++)
 }
 Console.WriteLine($"Количество положительных чисел: {sch}");*/
 
-Console.WriteLine("Введите переменную b1: ");
+/*Console.WriteLine("Введите переменную b1: ");
 double b1 = Convert.ToDouble(Console.ReadLine());
 Console.WriteLine("Введите переменную k1: ");
 double k1 = Convert.ToDouble(Console.ReadLine());
@@ -217,4 +217,81 @@ double k2 = Convert.ToDouble(Console.ReadLine());
 double x = (b2-b1)/(k1-k2);
 double y = k1 * x + b1;
 
-Console.WriteLine($"Координаты точки пересечения X = {x} Y = {y} ");
+Console.WriteLine($"Координаты точки пересечения X = {x} Y = {y} ");*/
+
+
+/*Console.WriteLine("введите количество строк: ");
+int lines = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите количество столбцов: ");
+int columns = Convert.ToInt32(Console.ReadLine());
+double[,] numbers = new double[lines, columns];
+FillArrayRandomNumbers(numbers);
+PrintArray(numbers);
+
+void FillArrayRandomNumbers(double[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().NextDouble();
+        }
+    }
+}
+
+void PrintArray(double[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + " ");
+        }
+        Console.WriteLine("");
+    }
+}*/
+
+Console.WriteLine("введите количество строк:");
+int lines = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите количество столбцов:");
+int columns = Convert.ToInt32(Console.ReadLine());
+int [,] numbers = new int [lines,columns];
+FillArrayRandomNumbers(numbers);
+PrintArray(numbers);
+double sum = 0;
+double avg = 0;
+Console.WriteLine("Среднее арифметическое по столбцам");
+for (int i = 0; i < numbers.GetLength(1); i++)
+    {        
+        for (int j = 0; j < numbers.GetLength(0); j++)
+        {
+        sum += numbers[j,i];
+        }
+        avg = sum/numbers.GetLength(0);
+        Console.Write(avg + " ");
+        sum = 0;
+        avg = 0;   
+    }
+
+void FillArrayRandomNumbers(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+        {        
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                array [i,j] = new Random().Next(0, 20);
+            }   
+        }
+}
+
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i,j] + " ");
+        }   
+        Console.WriteLine(""); 
+    }
+}
