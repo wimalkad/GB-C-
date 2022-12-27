@@ -251,7 +251,7 @@ void PrintArray(double[,] array)
     }
 }*/
 
-Console.WriteLine("введите количество строк:");
+/*Console.WriteLine("введите количество строк:");
 int lines = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("введите количество столбцов:");
 int columns = Convert.ToInt32(Console.ReadLine());
@@ -271,7 +271,7 @@ for (int i = 0; i < numbers.GetLength(1); i++)
         Console.Write(avg + " ");
         sum = 0;
         avg = 0;   
-    }
+    }*/
 
 void FillArrayRandomNumbers(int[,] array)
 {
@@ -279,7 +279,7 @@ void FillArrayRandomNumbers(int[,] array)
         {        
             for (int j = 0; j < array.GetLength(1); j++)
             {
-                array [i,j] = new Random().Next(0, 20);
+                array [i,j] = new Random().Next(0, 10);
             }   
         }
 }
@@ -294,4 +294,84 @@ void PrintArray(int[,] array)
         }   
         Console.WriteLine(""); 
     }
+}
+
+int SumStroki(int[,] array, int i)
+{
+  int sumstr = array[i,0];
+  for (int j = 1; j < array.GetLength(1); j++)
+  {
+    sumstr += array[i,j];
+  }
+  return sumstr;
+}
+
+/*Console.WriteLine("введите количество строк:");
+int lines = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите количество столбцов:");
+int columns = Convert.ToInt32(Console.ReadLine());
+int [,] numbers = new int [lines,columns];
+FillArrayRandomNumbers(numbers);
+PrintArray(numbers);
+
+int sum = 0;
+int summastroki = SumStroki(numbers, 0);
+
+for (int i = 1; i < numbers.GetLength(0); i++)
+{
+  int vremSumLine = SumStroki(numbers, i);
+  if (summastroki> vremSumLine)
+  {
+    summastroki = vremSumLine;
+    sum = i;
+  }
+}
+
+Console.WriteLine($"{sum+1} - номер строки с наименьшей суммой: {summastroki}");
+
+PrintArray(numbers);
+*/
+
+// Задача 62: Заполните спирально массив 4 на 4.
+// 1 2 3 4
+// 12 13 14 5
+// 11 16 15 6
+// 10 9 8 7
+
+int n = 4;
+int[,] sqareMatrix = new int[n, n];
+
+int temp = 1;
+int i = 0;
+int j = 0;
+
+while (temp <= sqareMatrix.GetLength(0) * sqareMatrix.GetLength(1))
+{
+  sqareMatrix[i, j] = temp;
+  temp++;
+  if (i <= j + 1 && i + j < sqareMatrix.GetLength(1) - 1)
+    j++;
+  else if (i < j && i + j >= sqareMatrix.GetLength(0) - 1)
+    i++;
+  else if (i >= j && i + j > sqareMatrix.GetLength(1) - 1)
+    j--;
+  else
+    i--;
+}
+
+WriteArray(sqareMatrix);
+
+void WriteArray (int[,] array)
+{
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+      if (array[i,j] / 10 <= 0)
+      Console.Write($" {array[i,j]} ");
+
+      else Console.Write($"{array[i,j]} ");
+    }
+    Console.WriteLine();
+  }
 }
