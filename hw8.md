@@ -150,3 +150,69 @@
         Console.WriteLine();
     }
     }
+
+#   Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+
+    void FillArrayRandomNumbers(int[,] array)
+    {
+        for (int i = 0; i < array.GetLength(0); i++)
+            {        
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    array [i,j] = new Random().Next(1, 5);
+                }   
+            }
+    }
+
+    void PrintArray(int[,] array)
+    {
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                Console.Write(array[i,j] + " ");
+            }   
+            Console.WriteLine(""); 
+        }
+    }
+
+    Console.WriteLine("введите количество строк первой матрицы:");
+    int lines1 = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("введите количество столбцов первой матрицы:");
+    int columns1 = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine("введите количество столбцов второй матрицы:");
+    int columns2 = Convert.ToInt32(Console.ReadLine());
+
+
+    int[,] firstMartrix = new int[lines1, columns1];
+    FillArrayRandomNumbers(firstMartrix);
+    Console.WriteLine($"\nПервая матрица:");
+    PrintArray(firstMartrix);
+
+    int[,] secomdMartrix = new int[columns1, columns2];
+    FillArrayRandomNumbers(secomdMartrix);
+    Console.WriteLine($"\nВторая матрица:");
+    PrintArray(secomdMartrix);
+
+    int[,] proizvmatrix = new int[lines1,columns2];
+
+    MultiplyMatrix(firstMartrix, secomdMartrix, proizvmatrix);
+    Console.WriteLine($"\nПроизведение первой и второй матриц:");
+    PrintArray(proizvmatrix);
+
+    void MultiplyMatrix(int[,] firstMartrix, int[,] secomdMartrix, int[,] resultMatrix)
+    {
+    for (int i = 0; i < resultMatrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < resultMatrix.GetLength(1); j++)
+        {
+        int sum = 0;
+        for (int q = 0; q < firstMartrix.GetLength(1); q++)
+        {
+            sum += firstMartrix[i,q] * secomdMartrix[q,j];
+        }
+        resultMatrix[i,j] = sum;
+        }
+    }
+    }
