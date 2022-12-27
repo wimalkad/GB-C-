@@ -284,17 +284,7 @@ void FillArrayRandomNumbers(int[,] array)
         }
 }
 
-void PrintArray(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            Console.Write(array[i,j] + " ");
-        }   
-        Console.WriteLine(""); 
-    }
-}
+
 
 int SumStroki(int[,] array, int i)
 {
@@ -340,44 +330,71 @@ PrintArray(numbers);
 
 // Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
 
+// Задача 60: Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
 
-Console.WriteLine("введите количество строк первой матрицы:");
-int lines1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("введите количество столбцов первой матрицы:");
-int columns1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("nВведите размер массива X x Y x Z:");
+Console.WriteLine("введите X:");
+int x = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите Y:");
+int y = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите Z:");
+int z = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"");
 
-Console.WriteLine("введите количество столбцов второй матрицы:");
-int columns2 = Convert.ToInt32(Console.ReadLine());
+int[,,] arrayob = new int[x, y, z];
+FillArray(arrayob);
+PrintArray(arrayob);
 
 
-int[,] firstMartrix = new int[lines1, columns1];
-FillArrayRandomNumbers(firstMartrix);
-Console.WriteLine($"\nПервая матрица:");
-PrintArray(firstMartrix);
-
-int[,] secomdMartrix = new int[columns1, columns2];
-FillArrayRandomNumbers(secomdMartrix);
-Console.WriteLine($"\nВторая матрица:");
-PrintArray(secomdMartrix);
-
-int[,] proizvmatrix = new int[lines1,columns2];
-
-MultiplyMatrix(firstMartrix, secomdMartrix, proizvmatrix);
-Console.WriteLine($"\nПроизведение первой и второй матриц:");
-PrintArray(proizvmatrix);
-
-void MultiplyMatrix(int[,] firstMartrix, int[,] secomdMartrix, int[,] resultMatrix)
+void PrintArray (int[,,] array3D)
 {
-  for (int i = 0; i < resultMatrix.GetLength(0); i++)
+  for (int i = 0; i < array3D.GetLength(0); i++)
   {
-    for (int j = 0; j < resultMatrix.GetLength(1); j++)
+    for (int j = 0; j < array3D.GetLength(1); j++)
     {
-      int sum = 0;
-      for (int q = 0; q < firstMartrix.GetLength(1); q++)
+      Console.Write($"X({i+1}) Y({j+1}) ");
+      for (int k = 0; k < array3D.GetLength(2); k++)
       {
-        sum += firstMartrix[i,q] * secomdMartrix[q,j];
+        Console.Write( $"Z({k+1})={array3D[i,j,k]}; ");
       }
-      resultMatrix[i,j] = sum;
+      Console.WriteLine();
+    }
+    Console.WriteLine();
+  }
+}
+
+void FillArray(int[,,] array3D)
+{
+  int[] vrem = new int[array3D.GetLength(0) * array3D.GetLength(1) * array3D.GetLength(2)];
+  int  number;
+  for (int i = 0; i < vrem.GetLength(0); i++)
+  {
+    vrem[i] = new Random().Next(10, 100);
+    number = vrem[i];
+    if (i >= 1)
+    {
+      for (int j = 0; j < i; j++)
+      {
+        while (vrem[i] == vrem[j])
+        {
+          vrem[i] = new Random().Next(10, 100);
+          j = 0;
+          number = vrem[i];
+        }
+          number = vrem[i];
+      }
+    }
+  }
+  int count = 0; 
+  for (int x = 0; x < array3D.GetLength(0); x++)
+  {
+    for (int y = 0; y < array3D.GetLength(1); y++)
+    {
+      for (int z = 0; z < array3D.GetLength(2); z++)
+      {
+        array3D[x, y, z] = vrem[count];
+        count++;
+      }
     }
   }
 }
