@@ -279,7 +279,7 @@ void FillArrayRandomNumbers(int[,] array)
         {        
             for (int j = 0; j < array.GetLength(1); j++)
             {
-                array [i,j] = new Random().Next(0, 10);
+                array [i,j] = new Random().Next(1, 5);
             }   
         }
 }
@@ -338,40 +338,46 @@ PrintArray(numbers);
 // 11 16 15 6
 // 10 9 8 7
 
-int n = 4;
-int[,] sqareMatrix = new int[n, n];
+// Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
 
-int temp = 1;
-int i = 0;
-int j = 0;
 
-while (temp <= sqareMatrix.GetLength(0) * sqareMatrix.GetLength(1))
+Console.WriteLine("введите количество строк первой матрицы:");
+int lines1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите количество столбцов первой матрицы:");
+int columns1 = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("введите количество столбцов второй матрицы:");
+int columns2 = Convert.ToInt32(Console.ReadLine());
+
+
+int[,] firstMartrix = new int[lines1, columns1];
+FillArrayRandomNumbers(firstMartrix);
+Console.WriteLine($"\nПервая матрица:");
+PrintArray(firstMartrix);
+
+int[,] secomdMartrix = new int[columns1, columns2];
+FillArrayRandomNumbers(secomdMartrix);
+Console.WriteLine($"\nВторая матрица:");
+PrintArray(secomdMartrix);
+
+int[,] proizvmatrix = new int[lines1,columns2];
+
+MultiplyMatrix(firstMartrix, secomdMartrix, proizvmatrix);
+Console.WriteLine($"\nПроизведение первой и второй матриц:");
+PrintArray(proizvmatrix);
+
+void MultiplyMatrix(int[,] firstMartrix, int[,] secomdMartrix, int[,] resultMatrix)
 {
-  sqareMatrix[i, j] = temp;
-  temp++;
-  if (i <= j + 1 && i + j < sqareMatrix.GetLength(1) - 1)
-    j++;
-  else if (i < j && i + j >= sqareMatrix.GetLength(0) - 1)
-    i++;
-  else if (i >= j && i + j > sqareMatrix.GetLength(1) - 1)
-    j--;
-  else
-    i--;
-}
-
-WriteArray(sqareMatrix);
-
-void WriteArray (int[,] array)
-{
-  for (int i = 0; i < array.GetLength(0); i++)
+  for (int i = 0; i < resultMatrix.GetLength(0); i++)
   {
-    for (int j = 0; j < array.GetLength(1); j++)
+    for (int j = 0; j < resultMatrix.GetLength(1); j++)
     {
-      if (array[i,j] / 10 <= 0)
-      Console.Write($" {array[i,j]} ");
-
-      else Console.Write($"{array[i,j]} ");
+      int sum = 0;
+      for (int q = 0; q < firstMartrix.GetLength(1); q++)
+      {
+        sum += firstMartrix[i,q] * secomdMartrix[q,j];
+      }
+      resultMatrix[i,j] = sum;
     }
-    Console.WriteLine();
   }
 }
